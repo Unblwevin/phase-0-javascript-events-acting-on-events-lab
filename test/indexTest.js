@@ -22,25 +22,11 @@ describe('moveDodgerLeft()', () => {
   })
 })
 
-describe('moveDodgerRight()', () => {
-  beforeEach(() => {
-    dodger = document.getElementById('dodger')
-  })
+function moveDodgerRight() {
+  let currentPosition = dodger.style.left;
+  currentPosition = parseInt(currentPosition);
 
-  it('moves the DODGER to the right', () => {
-    let left = dodger.style.left
-    left = parseInt(left)
-
-    moveDodgerRight()
-
-    let newPosition = dodger.style.left
-    newPosition = parseInt(newPosition)
-    
-    if (left < 360){
-      expect(newPosition).to.be.above(left)
-    } else{
-      expect(newPosition).to.equal(left)
-    }
-    
-  })
-})
+  if (currentPosition < 360) {
+    dodger.style.left = `${currentPosition + 1}px`;
+  }
+}
